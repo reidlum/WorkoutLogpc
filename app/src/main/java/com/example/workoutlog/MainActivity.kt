@@ -25,6 +25,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Initialize data.
+        val myDataset = Datasource().loadWorkouts()
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = ItemAdapter(this, myDataset)
+
         setSupportActionBar(binding.toolbar)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -35,11 +41,7 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        // Initialize data.
-        val myDataset = Datasource().loadWorkouts()
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = ItemAdapter(this, myDataset)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -5,15 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.workoutlog.model.workout
+import com.example.workoutlog.model.Workout
 import com.example.workoutlog.R
 
 /**
- 
+
  */
 class ItemAdapter(
     private val context: Context,
-    private val dataset: List<workout>
+    private val dataset: List<Workout>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     // Provide a reference to the views for each data item

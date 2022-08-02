@@ -13,4 +13,8 @@
 
     <!-- placeholder for database workouts -->
     <string name="workout1">Workout 1</string>
+    <string name="workout2">Workout 2</string>
+    <string name="workout3">Workout 3</string>
+    <string name="workout4">Workout 4</string>
+    <string name="workout5">Workout 5</string>
 </resources>
