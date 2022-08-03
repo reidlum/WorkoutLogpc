@@ -26,18 +26,29 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/set1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/set1"
+        app:layout_constraintEnd_toStartOf="@+id/rep_label1"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/rep_label"
+        android:id="@+id/rep_label1"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_margin="12dp"
         android:hint="@string/number_of_reps"
         app:layout_constraintTop_toBottomOf="@id/name_label"
-        app:layout_constraintRight_toLeftOf="@id/weight_label">
+        app:layout_constraintRight_toLeftOf="@id/weight_label1">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/rep_input"
+            android:id="@+id/rep_input1"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:inputType="textAutoComplete"
@@ -46,7 +57,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/weight_label"
+        android:id="@+id/weight_label1"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -55,13 +66,352 @@
         app:layout_constraintTop_toBottomOf="@id/name_label">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/weight_input"
+            android:id="@+id/weight_input1"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:inputType="textAutoComplete"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/set2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="97dp"
+        android:text="@string/set2"
+        app:layout_constraintEnd_toStartOf="@+id/rep_label2"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rep_label2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_margin="12dp"
+        android:hint="@string/number_of_reps"
+        app:layout_constraintTop_toBottomOf="@id/rep_label1"
+        app:layout_constraintRight_toLeftOf="@id/weight_label2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rep_input2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_label2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/lbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_label1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_input2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/set3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="163dp"
+        android:text="@string/set3"
+        app:layout_constraintEnd_toStartOf="@+id/rep_label3"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rep_label3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_margin="12dp"
+        android:hint="@string/number_of_reps"
+        app:layout_constraintTop_toBottomOf="@id/rep_label2"
+        app:layout_constraintRight_toLeftOf="@id/weight_label3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rep_input3"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_label3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/lbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_label2">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/weight_input3"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:inputType="textAutoComplete"
+        android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/set4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:text="@string/set4"
+        app:layout_constraintEnd_toStartOf="@+id/rep_label4"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rep_label4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_margin="12dp"
+        android:hint="@string/number_of_reps"
+        app:layout_constraintTop_toBottomOf="@id/rep_label3"
+        app:layout_constraintRight_toLeftOf="@id/weight_label4">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rep_input4"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_label4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/lbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_label3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_input4"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/set5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="301dp"
+        android:text="@string/set5"
+        app:layout_constraintEnd_toStartOf="@+id/rep_label5"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rep_label5"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_margin="12dp"
+        android:hint="@string/number_of_reps"
+        app:layout_constraintTop_toBottomOf="@id/rep_label4"
+        app:layout_constraintRight_toLeftOf="@id/weight_label5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rep_input5"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_label5"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/lbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_label4">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_input5"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/set6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="368dp"
+        android:text="@string/set6"
+        app:layout_constraintEnd_toStartOf="@+id/rep_label6"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rep_label6"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_margin="12dp"
+        android:hint="@string/number_of_reps"
+        app:layout_constraintTop_toBottomOf="@id/rep_label5"
+        app:layout_constraintRight_toLeftOf="@id/weight_label6">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rep_input6"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_label6"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/lbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_label5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_input6"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/set7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="436dp"
+        android:text="@string/set7"
+        app:layout_constraintEnd_toStartOf="@+id/rep_label7"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rep_label7"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_margin="12dp"
+        android:hint="@string/number_of_reps"
+        app:layout_constraintTop_toBottomOf="@id/rep_label6"
+        app:layout_constraintRight_toLeftOf="@id/weight_label7">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rep_input7"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_label7"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/lbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_label6">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_input7"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/set8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="502dp"
+        android:text="@string/set8"
+        app:layout_constraintEnd_toStartOf="@+id/rep_label8"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rep_label8"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_margin="12dp"
+        android:hint="@string/number_of_reps"
+        app:layout_constraintTop_toBottomOf="@id/rep_label7"
+        app:layout_constraintRight_toLeftOf="@id/weight_label8">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rep_input8"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weight_label8"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/lbs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_label7">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_input8"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:inputType="textAutoComplete"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/save_btn"
@@ -72,15 +422,5 @@
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
-
-    <TextView
-        android:id="@+id/set1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="100dp"
-        android:text="@string/set1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
