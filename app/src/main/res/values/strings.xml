@@ -11,6 +11,19 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+    <!-- text in fragments -->
+    <string name="workout_name">Workout Name</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="number_of_reps"># Reps</string>
+    <string name="lbs">lbs</string>
+    <string name="save">Save</string>
+    <string name="set1">Set 1</string>
+    <string name="set2">Set 2</string>
+    <string name="set3">Set 3</string>
+    <string name="set4">Set 4</string>
+    <string name="set5">Set 5</string>
+    <string name="set6">Set 6</string>
+    <string name="set7">Set 7</string>
 
     <!-- placeholder for database workouts -->
     <string name="workout1">Workout 1</string>
@@ -18,4 +31,6 @@
     <string name="workout3">Workout 3</string>
     <string name="workout4">Workout 4</string>
     <string name="workout5">Workout 5</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
