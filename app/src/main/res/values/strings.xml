@@ -12,7 +12,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <!-- text in fragments -->
-    <string name="workout_name">Workout Name</string>
+    <string name="workout_name">Workout Session Name</string>
     <string name="exercise_name">Exercise Name</string>
     <string name="number_of_reps"># Reps</string>
     <string name="lbs">lbs</string>

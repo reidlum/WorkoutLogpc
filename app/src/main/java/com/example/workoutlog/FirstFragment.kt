@@ -6,7 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.workoutlog.adapter.ItemAdapter
+import com.example.workoutlog.data.Datasource
 import com.example.workoutlog.databinding.FragmentFirstBinding
+
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -14,6 +20,7 @@ import com.example.workoutlog.databinding.FragmentFirstBinding
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
+    private lateinit var recyclerView: RecyclerView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,6 +34,8 @@ class FirstFragment : Fragment() {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
 
+        //@TODO FIGURE OUT RECYCLER VIEW FOR WORKOUTS
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,6 +43,9 @@ class FirstFragment : Fragment() {
 
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_addWorkoutFragment)
         }
     }
 
