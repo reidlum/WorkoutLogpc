@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/addWorkoutFragment"
         android:name="com.example.workoutlog.AddWorkoutFragment"
-        android:label="fragment_add_workout"
+        android:label="@string/add_workout_fragment_label"
         tools:layout="@layout/fragment_add_workout" >
         <action
             android:id="@+id/action_addWorkoutFragment_to_FirstFragment2"
@@ -43,6 +43,6 @@
     <fragment
         android:id="@+id/addExerciseFragment"
         android:name="com.example.workoutlog.AddExerciseFragment"
-        android:label="fragment_add_exercise"
+        android:label="@string/add_exercise_fragment_label"
         tools:layout="@layout/fragment_add_exercise" />
 </navigation>
