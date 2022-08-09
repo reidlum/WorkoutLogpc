@@ -50,6 +50,10 @@ class AddExerciseFragment : Fragment() {
             findNavController().navigate(R.id.action_addExerciseFragment_to_SecondFragment)
         }
     }
+    private fun saveExercise(){
+        val stringInTextField = binding.repInput1.text.toString()
+        val rep1 = stringInTextField.toIntOrNull()
+    }
 
     companion object {
         /**
