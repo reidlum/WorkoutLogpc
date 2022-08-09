@@ -50,7 +50,7 @@
             android:id="@+id/rep_input1"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -68,7 +68,7 @@
             android:id="@+id/weight_input1"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -98,7 +98,7 @@
             android:id="@+id/rep_input2"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -116,7 +116,7 @@
             android:id="@+id/weight_input2"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -146,7 +146,7 @@
             android:id="@+id/rep_input3"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -164,7 +164,7 @@
         android:id="@+id/weight_input3"
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:inputType="textAutoComplete"
+        android:inputType="numberDecimal"
         android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -194,7 +194,7 @@
             android:id="@+id/rep_input4"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -212,7 +212,7 @@
             android:id="@+id/weight_input4"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -242,7 +242,7 @@
             android:id="@+id/rep_input5"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -260,7 +260,7 @@
             android:id="@+id/weight_input5"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -290,7 +290,7 @@
             android:id="@+id/rep_input6"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -308,7 +308,7 @@
             android:id="@+id/weight_input6"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -338,7 +338,7 @@
             android:id="@+id/rep_input7"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -356,55 +356,7 @@
             android:id="@+id/weight_input7"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
-            android:singleLine="true" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/set8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="502dp"
-        android:text="@string/set8"
-        app:layout_constraintEnd_toStartOf="@+id/rep_label8"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_label" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/rep_label8"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_margin="12dp"
-        android:hint="@string/number_of_reps"
-        app:layout_constraintTop_toBottomOf="@id/rep_label7"
-        app:layout_constraintRight_toLeftOf="@id/weight_label8">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/rep_input8"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
-            android:singleLine="true" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/weight_label8"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/lbs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weight_label7">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/weight_input8"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="numberDecimal"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -417,6 +369,6 @@
         android:layout_marginTop="5dp"
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weight_label8" />
+        app:layout_constraintTop_toBottomOf="@+id/weight_label7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
