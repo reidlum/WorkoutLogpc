@@ -47,7 +47,7 @@ class AddWorkoutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.saveBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_addExerciseFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_addWorkoutFragment_to_FirstFragment2)
         }
     }
 
