@@ -24,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class AddWorkoutFragment : Fragment() {
 
-    private val viewModel: InventoryViewModel by activityViewModels {
+    private val viewModel: WorkoutViewModel by activityViewModels {
         WorkoutViewModelFactory(
             (activity?.application as WorkoutApplication).database
                 .workoutDao()
@@ -58,7 +58,7 @@ class AddWorkoutFragment : Fragment() {
 
     private fun isEntryValid(): Boolean {
         return viewModel.isEntryValid(
-            binding.workoutName.text.toString()
+            binding.nameInput.text.toString()
         )
     }
 

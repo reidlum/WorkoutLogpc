@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
  * View Model to keep a reference to the Inventory repository and an up-to-date list of all items.
  *
  */
-class InventoryViewModel(private val workoutDao: WorkoutDao) : ViewModel() {
+class WorkoutViewModel(private val workoutDao: WorkoutDao) : ViewModel() {
 
     /**
      * Inserts the new Item into database.
@@ -56,9 +56,9 @@ class InventoryViewModel(private val workoutDao: WorkoutDao) : ViewModel() {
  */
 class WorkoutViewModelFactory(private val workoutDao: WorkoutDao) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(InventoryViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(WorkoutViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return InventoryViewModel(workoutDao) as T
+            return WorkoutViewModel(workoutDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
