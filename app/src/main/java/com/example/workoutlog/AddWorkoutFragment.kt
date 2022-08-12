@@ -1,12 +1,15 @@
 package com.example.workoutlog
 
+import android.content.ClipData
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.workoutlog.databinding.FragmentAddWorkoutBinding
+import com.example.workoutlog.data.Workout
 import com.example.workoutlog.databinding.FragmentFirstBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -20,7 +23,16 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class AddWorkoutFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
+    private val viewModel: InventoryViewModel by activityViewModels {
+        WorkoutViewModelFactory(
+            (activity?.application as WorkoutApplication).database
+                .workoutDao()
+        )
+    }
+
+    lateinit var workout: Workout
+
     private var param1: String? = null
     private var param2: String? = null
     private var _binding: FragmentAddWorkoutBinding? = null
@@ -42,6 +54,12 @@ class AddWorkoutFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_add_workout, container, false)
         _binding = FragmentAddWorkoutBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    private fun isEntryValid(): Boolean {
+        return viewModel.isEntryValid(
+            binding.workoutName.text.toString()
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -9,6 +9,6 @@ data class Workout(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     @ColumnInfo(name = "name")
-    val itemName: String
+    val workoutName: String
     //@TODO date?
 )

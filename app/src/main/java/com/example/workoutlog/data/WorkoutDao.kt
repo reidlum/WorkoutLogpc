@@ -20,5 +20,5 @@ interface WorkoutDao {
     fun getWorkout(id: Int): Flow<Workout>
 
     @Query("SELECT * from workout ORDER BY name ASC")
-    fun getItems(): Flow<List<ClipData.Item>>
+    fun getWorkouts(): Flow<List<Workout>>
 }
