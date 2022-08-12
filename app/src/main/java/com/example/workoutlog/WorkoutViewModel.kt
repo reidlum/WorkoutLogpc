@@ -54,6 +54,7 @@ class WorkoutViewModel(private val workoutDao: WorkoutDao) : ViewModel() {
 /**
  * Factory class to instantiate the [ViewModel] instance.
  */
+
 class WorkoutViewModelFactory(private val workoutDao: WorkoutDao) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(WorkoutViewModel::class.java)) {

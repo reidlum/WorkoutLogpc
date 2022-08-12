@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface WorkoutDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(item: Workout)
+    suspend fun insert(workout: Workout)
 
     @Update
     suspend fun update(item: Workout)

@@ -24,14 +24,16 @@ private const val ARG_PARAM2 = "param2"
  */
 class AddWorkoutFragment : Fragment() {
 
+
+
+    lateinit var workout: Workout
+
     private val viewModel: WorkoutViewModel by activityViewModels {
         WorkoutViewModelFactory(
             (activity?.application as WorkoutApplication).database
                 .workoutDao()
         )
     }
-
-    lateinit var workout: Workout
 
     private var param1: String? = null
     private var param2: String? = null
@@ -61,11 +63,19 @@ class AddWorkoutFragment : Fragment() {
             binding.nameInput.text.toString()
         )
     }
+    private fun addNewItem() {
+        if (isEntryValid()) {
+            viewModel.addNewWorkout(
+                binding.nameInput.text.toString()
+            )
+            findNavController().navigate(R.id.action_addWorkoutFragment_to_FirstFragment2)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.saveBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_addWorkoutFragment_to_FirstFragment2)
+            addNewItem()
         }
     }
 
