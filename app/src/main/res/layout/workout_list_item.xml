@@ -9,9 +9,10 @@
 
     <TextView
         android:id="@+id/item_name"
-        android:layout_width="180dp"
-        android:layout_height="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:fontFamily="sans-serif"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Cogs and Widgets" />
