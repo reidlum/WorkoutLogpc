@@ -15,6 +15,7 @@ import com.example.workoutlog.databinding.FragmentFirstBinding
 
 
 
+
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
