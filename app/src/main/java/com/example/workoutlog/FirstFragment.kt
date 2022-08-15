@@ -35,14 +35,13 @@ class FirstFragment : Fragment() {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
 
-        //@TODO FIGURE OUT RECYCLER VIEW FOR WORKOUTS
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = WorkoutListAdapter {
-            this.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(workoutName = it.workoutName)
+            this.findNavController().navigate(action)
         }
         binding.recyclerView.adapter = adapter
         viewModel.allWorkouts.observe(this.viewLifecycleOwner) { workouts ->

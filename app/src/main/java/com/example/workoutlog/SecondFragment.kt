@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.workoutlog.databinding.FragmentSecondBinding
 
@@ -13,11 +14,33 @@ import com.example.workoutlog.databinding.FragmentSecondBinding
  */
 class SecondFragment : Fragment() {
 
+    companion object {
+        var WORKOUT_NAME = "workoutName"
+    }
+
     private var _binding: FragmentSecondBinding? = null
+
+
+
+    private lateinit var workoutName: String
+
+    private val viewModel: WorkoutViewModel by activityViewModels {
+        WorkoutViewModelFactory(
+            (activity?.application as WorkoutApplication).database.workoutDao()
+        )
+    }
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            workoutName = it.getString(WORKOUT_NAME).toString()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
