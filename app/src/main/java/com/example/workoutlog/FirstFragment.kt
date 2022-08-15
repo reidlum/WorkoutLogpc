@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.workoutlog.adapter.ItemAdapter
 import com.example.workoutlog.data.Datasource
 import com.example.workoutlog.databinding.FragmentFirstBinding
 

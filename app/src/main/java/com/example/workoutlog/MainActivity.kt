@@ -11,7 +11,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.workoutlog.adapter.ItemAdapter
 import com.example.workoutlog.data.Datasource
 import com.example.workoutlog.databinding.ActivityMainBinding
 import com.example.workoutlog.databinding.FragmentFirstBinding

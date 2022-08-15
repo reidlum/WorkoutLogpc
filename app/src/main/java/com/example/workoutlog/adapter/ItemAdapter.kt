@@ -9,8 +9,6 @@ import com.example.workoutlog.model.Workout
 import com.example.workoutlog.R
 
 /**
-
- */
 class ItemAdapter(
     private val context: Context,
     private val dataset: List<Workout>
@@ -48,3 +46,4 @@ class ItemAdapter(
      */
     override fun getItemCount() = dataset.size
 }
+*/
