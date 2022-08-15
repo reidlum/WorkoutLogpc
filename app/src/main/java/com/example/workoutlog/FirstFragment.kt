@@ -41,6 +41,15 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val adapter = WorkoutListAdapter {
+        }
+        binding.recyclerView.adapter = adapter
+        viewModel.allWorkouts.observe(this.viewLifecycleOwner) { workouts ->
+            workouts.let {
+                adapter.submitList(it)
+            }
+        }
+        binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
 
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)

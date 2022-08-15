@@ -11,10 +11,10 @@ interface WorkoutDao {
     suspend fun insert(workout: Workout)
 
     @Update
-    suspend fun update(item: Workout)
+    suspend fun update(workout: Workout)
 
     @Delete
-    suspend fun delete(item: Workout)
+    suspend fun delete(workout: Workout)
 
     @Query("SELECT * from workout WHERE id = :id")
     fun getWorkout(id: Int): Flow<Workout>

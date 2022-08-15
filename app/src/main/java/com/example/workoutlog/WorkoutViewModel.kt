@@ -1,17 +1,21 @@
 package com.example.workoutlog
 import android.content.ClipData
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.workoutlog.data.Workout
 import com.example.workoutlog.data.WorkoutDao
 import kotlinx.coroutines.launch
+import androidx.lifecycle.*
 
 /**
  * View Model to keep a reference to the Inventory repository and an up-to-date list of all items.
  *
  */
 class WorkoutViewModel(private val workoutDao: WorkoutDao) : ViewModel() {
+    val allWorkouts: LiveData<List<Workout>> = workoutDao.getWorkouts().asLiveData()
+
 
     /**
      * Inserts the new Item into database.
