@@ -78,6 +78,16 @@ class AddWorkoutFragment : Fragment() {
             findNavController().navigate(R.id.action_addWorkoutFragment_to_FirstFragment2)
         }
     }
+    private fun updateItem() {
+        if (isEntryValid()) {
+            viewModel.updateItem(
+                this.navigationArgs.workoutId,
+                this.binding.nameInput.text.toString()
+            )
+            val action = AddWorkoutFragmentDirections.actionAddWorkoutFragmentToFirstFragment2()
+            findNavController().navigate(action)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -86,6 +96,9 @@ class AddWorkoutFragment : Fragment() {
             viewModel.retrieveWorkout(id).observe(this.viewLifecycleOwner) { selectedItem ->
                 workout = selectedItem
                 bind(workout)
+                binding.saveBtn.setOnClickListener {
+                    updateItem()
+                }
             }
         } else {
             binding.saveBtn.setOnClickListener {

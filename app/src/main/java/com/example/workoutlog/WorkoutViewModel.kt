@@ -53,8 +53,30 @@ class WorkoutViewModel(private val workoutDao: WorkoutDao) : ViewModel() {
             workoutName = workoutName,
         )
     }
+    private fun getUpdatedItemEntry(
+        workoutId: Int,
+        workoutName: String
+    ): Workout {
+        return Workout(
+            id = workoutId,
+            workoutName = workoutName
+        )
+    }
+    fun updateItem(
+        workoutId: Int,
+        workoutName: String
+    ) {
+        val updatedItem = getUpdatedItemEntry(workoutId, workoutName)
+        updateItem(updatedItem)
+    }
 
-    fun retrieveWorkout(id: Int): LiveData<Workout> {
+    private fun updateItem(workout: Workout) {
+        viewModelScope.launch {
+            workoutDao.update(workout)
+        }
+    }
+
+        fun retrieveWorkout(id: Int): LiveData<Workout> {
         return workoutDao.getWorkout(id).asLiveData()
     }
 
