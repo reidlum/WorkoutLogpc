@@ -64,5 +64,8 @@
         <action
             android:id="@+id/action_addExerciseFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <argument
+            android:name="workout_id"
+            app:argType="integer" />
     </fragment>
 </navigation>

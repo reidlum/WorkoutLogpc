@@ -89,7 +89,8 @@ class SecondFragment : Fragment() {
 
         }
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_addExerciseFragment)
+            val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutId = id)
+            findNavController().navigate(action)
         }
         viewModel.retrieveWorkout(id).observe(this.viewLifecycleOwner) { selectedItem ->
             workout = selectedItem
