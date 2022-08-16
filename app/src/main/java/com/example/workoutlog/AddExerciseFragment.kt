@@ -24,7 +24,6 @@ private const val ARG_PARAM2 = "param2"
 class AddExerciseFragment : Fragment() {
     // TODO: Rename and change types of parameters
 
-    lateinit var workout: Workout
     private var param1: String? = null
     private var param2: String? = null
     private var _binding: FragmentAddExerciseBinding? = null
@@ -36,6 +35,7 @@ class AddExerciseFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            workoutName = it.getString(SecondFragment.WORKOUT_NAME).toString()
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
@@ -53,8 +53,9 @@ class AddExerciseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val id = navigationArgs.workoutId
         binding.saveBtn.setOnClickListener {
-            val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workout.workoutName, workout.id)
+            val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workoutName, id)
             findNavController().navigate(action)
         }
     }
