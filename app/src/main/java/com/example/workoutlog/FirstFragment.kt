@@ -5,14 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutlog.data.Datasource
 import com.example.workoutlog.databinding.FragmentFirstBinding
-
-
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 /**
@@ -40,7 +40,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = WorkoutListAdapter {
-            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(workoutName = it.workoutName)
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(workoutName = it.workoutName, workoutId = it.id)
             this.findNavController().navigate(action)
         }
         binding.recyclerView.adapter = adapter

@@ -53,6 +53,17 @@ class WorkoutViewModel(private val workoutDao: WorkoutDao) : ViewModel() {
             workoutName = workoutName,
         )
     }
+
+    fun retrieveWorkout(id: Int): LiveData<Workout> {
+        return workoutDao.getWorkout(id).asLiveData()
+    }
+
+    fun deleteWorkout(workout: Workout) {
+        viewModelScope.launch {
+            workoutDao.delete(workout)
+        }
+    }
+
 }
 
 /**

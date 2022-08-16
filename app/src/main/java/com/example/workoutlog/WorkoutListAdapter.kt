@@ -1,13 +1,19 @@
 package com.example.workoutlog
 
+import android.content.Context
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutlog.data.Workout
 import com.example.workoutlog.databinding.WorkoutListItemBinding
-
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 
 class WorkoutListAdapter(private val onWorkoutClicked: (Workout) -> Unit) :
@@ -22,6 +28,7 @@ class WorkoutListAdapter(private val onWorkoutClicked: (Workout) -> Unit) :
             )
         )
     }
+
 
     override fun onBindViewHolder(holder: WorkoutViewHolder, position: Int) {
         val current = getItem(position)
