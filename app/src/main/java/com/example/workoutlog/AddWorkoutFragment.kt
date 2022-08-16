@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.workoutlog.databinding.FragmentAddWorkoutBinding
 import com.example.workoutlog.data.Workout
 import com.example.workoutlog.databinding.FragmentFirstBinding
@@ -25,7 +27,7 @@ private const val ARG_PARAM2 = "param2"
 class AddWorkoutFragment : Fragment() {
 
 
-
+    private val navigationArgs: AddWorkoutFragmentArgs by navArgs()
     lateinit var workout: Workout
 
     private val viewModel: WorkoutViewModel by activityViewModels {
@@ -39,6 +41,11 @@ class AddWorkoutFragment : Fragment() {
     private var param2: String? = null
     private var _binding: FragmentAddWorkoutBinding? = null
     private val binding get() = _binding!!
+    private fun bind(workout: Workout) {
+        binding.apply {
+            nameInput.setText(workout.workoutName, TextView.BufferType.SPANNABLE)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,8 +81,16 @@ class AddWorkoutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.saveBtn.setOnClickListener {
-            addNewItem()
+        val id = navigationArgs.workoutId
+        if (id > 0) {
+            viewModel.retrieveWorkout(id).observe(this.viewLifecycleOwner) { selectedItem ->
+                workout = selectedItem
+                bind(workout)
+            }
+        } else {
+            binding.saveBtn.setOnClickListener {
+                addNewItem()
+            }
         }
     }
 
