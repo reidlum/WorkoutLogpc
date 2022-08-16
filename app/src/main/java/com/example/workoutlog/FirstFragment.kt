@@ -57,7 +57,10 @@ class FirstFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
 
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_addWorkoutFragment)
+            val action = FirstFragmentDirections.actionFirstFragmentToAddWorkoutFragment(
+                getString(R.string.add_fragment_title)
+            )
+            this.findNavController().navigate(action)
         }
     }
 

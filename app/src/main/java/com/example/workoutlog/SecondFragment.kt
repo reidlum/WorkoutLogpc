@@ -20,6 +20,7 @@ import com.example.workoutlog.databinding.ActivityMainBinding.inflate
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
+
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
@@ -47,6 +48,14 @@ class SecondFragment : Fragment() {
     private fun deleteWorkout() {
         viewModel.deleteWorkout(workout)
         findNavController().navigateUp()
+    }
+
+    private fun editWorkout() {
+        val action = SecondFragmentDirections.actionSecondFragmentToAddWorkoutFragment(
+            getString(R.string.edit_fragment_title),
+            workout.id
+        )
+        this.findNavController().navigate(action)
     }
 
     // This property is only valid between onCreateView and
@@ -96,6 +105,10 @@ class SecondFragment : Fragment() {
         return when (item.itemId) {
             R.id.action_deleteWorkout -> {
                 showConfirmationDialog()
+                true
+            }
+            R.id.action_editWorkout -> {
+                editWorkout()
                 true
             }
             else -> super.onOptionsItemSelected(item)

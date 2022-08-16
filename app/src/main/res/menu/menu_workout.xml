@@ -5,8 +5,13 @@
     tools:context="com.example.workoutlog.MainActivity">
     <item
         android:id="@+id/action_deleteWorkout"
-        android:orderInCategory="100"
+        android:orderInCategory="200"
         android:title="@string/delete_workout"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_editWorkout"
+        android:orderInCategory="100"
+        android:title="@string/edit_workout"
         app:showAsAction="never" />
 
 </menu>

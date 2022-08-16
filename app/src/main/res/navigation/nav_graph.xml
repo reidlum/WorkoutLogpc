@@ -36,12 +36,22 @@
         <action
             android:id="@+id/action_SecondFragment_to_addExerciseFragment"
             app:destination="@id/addExerciseFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_addWorkoutFragment"
+            app:destination="@id/addWorkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/addWorkoutFragment"
         android:name="com.example.workoutlog.AddWorkoutFragment"
-        android:label="@string/add_workout_fragment_label"
+        android:label="{title}"
         tools:layout="@layout/fragment_add_workout" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="workout_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
         <action
             android:id="@+id/action_addWorkoutFragment_to_FirstFragment2"
             app:destination="@id/FirstFragment" />
