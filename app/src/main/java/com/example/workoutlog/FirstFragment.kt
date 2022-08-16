@@ -1,10 +1,9 @@
 package com.example.workoutlog
 
+import android.app.ActionBar
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContentProviderCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -13,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutlog.data.Datasource
 import com.example.workoutlog.databinding.FragmentFirstBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.appcompat.app.AppCompatActivity
+
+
 
 
 /**
@@ -34,7 +37,6 @@ class FirstFragment : Fragment() {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,6 +63,7 @@ class FirstFragment : Fragment() {
                 .workoutDao()
         )
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -9,12 +9,22 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.workoutlog.data.Workout
 import com.example.workoutlog.databinding.FragmentSecondBinding
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import com.example.workoutlog.databinding.ActivityMainBinding.inflate
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class SecondFragment : Fragment() {
     private val navigationArgs: SecondFragmentArgs by navArgs()
+
     lateinit var workout: Workout
 
     companion object {
@@ -65,12 +75,34 @@ class SecondFragment : Fragment() {
         val id = navigationArgs.workoutId
 
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            showConfirmationDialog()
         }
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_addExerciseFragment)
         }
+        viewModel.retrieveWorkout(id).observe(this.viewLifecycleOwner) { selectedItem ->
+            workout = selectedItem
+            bind(workout)
+        }
     }
+
+    private fun bind(workout: Workout) {
+        binding.apply {
+            workoutName = workout.workoutName
+        }
+    }
+    private fun showConfirmationDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(android.R.string.dialog_alert_title))
+            .setMessage(getString(R.string.delete_question))
+            .setCancelable(false)
+            .setNegativeButton(getString(R.string.no)) { _, _ -> }
+            .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                deleteWorkout()
+            }
+            .show()
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -40,4 +40,5 @@
     <string name="attention">Attention</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="delete_workout">Delete Workout</string>
 </resources>
