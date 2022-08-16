@@ -1,8 +1,7 @@
 package com.example.workoutlog.data
-import com.example.workoutlog.model.Workout
 import com.example.workoutlog.R
 
-
+/*
 class Datasource {
 
     fun loadWorkouts(): List<Workout> {
@@ -16,4 +15,4 @@ class Datasource {
 
         )
     }
-}
+}*/

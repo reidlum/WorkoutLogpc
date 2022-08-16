@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.workoutlog.data.Datasource
 import com.example.workoutlog.databinding.FragmentFirstBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.navigation.ui.AppBarConfiguration
@@ -29,6 +28,10 @@ class FirstFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +60,11 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_addWorkoutFragment)
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
     private val viewModel: WorkoutViewModel by activityViewModels {
         WorkoutViewModelFactory(
             (activity?.application as WorkoutApplication).database

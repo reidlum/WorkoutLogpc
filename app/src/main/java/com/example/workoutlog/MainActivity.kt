@@ -11,7 +11,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.workoutlog.data.Datasource
 import com.example.workoutlog.databinding.ActivityMainBinding
 import com.example.workoutlog.databinding.FragmentFirstBinding
 import com.example.workoutlog.databinding.FragmentAddWorkoutBinding
@@ -40,11 +39,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /*
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
-    }
+    }*/
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

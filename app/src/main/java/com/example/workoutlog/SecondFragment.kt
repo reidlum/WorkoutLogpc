@@ -12,6 +12,7 @@ import com.example.workoutlog.databinding.FragmentSecondBinding
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
@@ -58,6 +59,7 @@ class SecondFragment : Fragment() {
         arguments?.let {
             workoutName = it.getString(WORKOUT_NAME).toString()
         }
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -75,7 +77,7 @@ class SecondFragment : Fragment() {
         val id = navigationArgs.workoutId
 
         binding.buttonSecond.setOnClickListener {
-            showConfirmationDialog()
+
         }
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_addExerciseFragment)
@@ -83,6 +85,20 @@ class SecondFragment : Fragment() {
         viewModel.retrieveWorkout(id).observe(this.viewLifecycleOwner) { selectedItem ->
             workout = selectedItem
             bind(workout)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_workout, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_deleteWorkout -> {
+                showConfirmationDialog()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
