@@ -1,14 +1,18 @@
 package com.example.workoutlog
 
 import android.content.ClipData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.workoutlog.data.Exercise
 import com.example.workoutlog.data.ExerciseDao
+import com.example.workoutlog.data.Workout
 import kotlinx.coroutines.launch
 
 class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
+
+    fun allExercises(workoutId: Int): LiveData<List<Exercise>> {
+        return exerciseDao.getExercisesForWorkout(workoutId).asLiveData()
+    }
+
 
     private fun insertExercise(exercise: Exercise) {
         viewModelScope.launch {
@@ -21,7 +25,7 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
                                     set1reps: Int,  set2reps: Int,  set3reps: Int,  set4reps: Int,  set5reps: Int,  set6reps: Int,  set7reps: Int,): Exercise {
         return Exercise(
             exerciseName = exerciseName,
-            workoutId = workoutId.toInt(),
+            workoutId = workoutId,
             set1weight = set1weight.toString().toInt(),
             set2weight = set2weight.toString().toInt(),
             set3weight = set3weight.toString().toInt(),

@@ -45,10 +45,11 @@ class AddExerciseFragment : Fragment() {
         )
     }
     private fun addNewExercise() {
+        val id = navigationArgs.workoutId
         if (isEntryValid()) {
             viewModel.addNewExercise(
                 binding.nameInput.text.toString(),
-                navigationArgs.workoutId,
+                id,
                 binding.weightInput1.text.toString(),
                 binding.weightInput2.text.toString(),
                 binding.weightInput3.text.toString(),

@@ -16,8 +16,12 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.workoutlog.data.Exercise
 import com.example.workoutlog.databinding.ActivityMainBinding.inflate
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.recyclerview.widget.RecyclerView
+
 
 
 
@@ -39,9 +43,16 @@ class SecondFragment : Fragment() {
 
     private lateinit var workoutName: String
 
+
     private val viewModel: WorkoutViewModel by activityViewModels {
         WorkoutViewModelFactory(
             (activity?.application as WorkoutApplication).database.workoutDao()
+        )
+    }
+
+    private val eviewModel: ExerciseViewModel by activityViewModels {
+       ExerciseViewModelFactory(
+            (activity?.application as WorkoutApplication).edatabase.exerciseDao()
         )
     }
 
@@ -84,6 +95,16 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val id = navigationArgs.workoutId
+        val adapter = ExerciseListAdapter {
+        }
+        binding.recyclerView.adapter = adapter
+        eviewModel.allExercises(id).observe(this.viewLifecycleOwner) { items ->
+            items.let {
+                adapter.submitList(it)
+            }
+        }
+        binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
+
 
         binding.buttonSecond.setOnClickListener {
 
@@ -103,6 +124,7 @@ class SecondFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = navigationArgs.workoutId
         return when (item.itemId) {
             R.id.action_deleteWorkout -> {
                 showConfirmationDialog()
