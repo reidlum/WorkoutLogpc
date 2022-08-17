@@ -113,10 +113,10 @@ class SecondFragment : Fragment() {
             //val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutName = workoutName, workoutId = id)
             //findNavController().navigate(action)
         //}
-        //viewModel.retrieveWorkout(id).observe(this.viewLifecycleOwner) { selectedItem ->
-        //    workout = selectedItem
-        //    bind(workout)
-        //}
+        viewModel.retrieveWorkout(id).observe(this.viewLifecycleOwner) { selectedItem ->
+            workout = selectedItem
+            bind(workout)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
