@@ -77,47 +77,47 @@ class AddExerciseFragment : Fragment() {
         binding.apply {
             nameInput.setText(exercise.exerciseName, TextView.BufferType.SPANNABLE)
         }
-        if (exercise.set1weight != null) {
-            binding.apply { weightInput1.setText(exercise.set1weight) }
+        if (exercise.set1weight != -1) {
+            binding.apply { weightInput1.setText(exercise.set1weight.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set2weight != null) {
-            binding.apply { weightInput2.setText(exercise.set2weight) }
+        if (exercise.set2weight != -1) {
+            binding.apply { weightInput2.setText(exercise.set2weight.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set3weight != null) {
-            binding.apply { weightInput3.setText(exercise.set3weight) }
+        if (exercise.set3weight != -1) {
+            binding.apply { weightInput3.setText(exercise.set3weight.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set4weight != null) {
-            binding.apply { weightInput4.setText(exercise.set4weight) }
+        if (exercise.set4weight != -1) {
+            binding.apply { weightInput4.setText(exercise.set4weight.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set5weight != null) {
-            binding.apply { weightInput5.setText(exercise.set5weight) }
+        if (exercise.set5weight != -1) {
+            binding.apply { weightInput5.setText(exercise.set5weight.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set6weight != null) {
-            binding.apply { weightInput6.setText(exercise.set6weight) }
+        if (exercise.set6weight != -1) {
+            binding.apply { weightInput6.setText(exercise.set6weight.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set7weight != null) {
-            binding.apply { weightInput7.setText(exercise.set7weight) }
+        if (exercise.set7weight != -1) {
+            binding.apply { weightInput7.setText(exercise.set7weight.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set1reps != null) {
-            binding.apply { repInput1.setText(exercise.set1reps) }
+        if (exercise.set1reps != -1) {
+            binding.apply { repInput1.setText(exercise.set1reps.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set2reps != null) {
-            binding.apply { repInput2.setText(exercise.set2reps) }
+        if (exercise.set2reps != -1) {
+            binding.apply { repInput2.setText(exercise.set2reps.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set3reps != null) {
-            binding.apply { repInput3.setText(exercise.set3reps) }
+        if (exercise.set3reps != -1) {
+            binding.apply { repInput3.setText(exercise.set3reps.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set4reps != null) {
-            binding.apply { repInput4.setText(exercise.set4reps) }
+        if (exercise.set4reps != -1) {
+            binding.apply { repInput4.setText(exercise.set4reps.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set5reps != null) {
-            binding.apply { repInput5.setText(exercise.set5reps) }
+        if (exercise.set5reps != -1) {
+            binding.apply { repInput5.setText(exercise.set5reps.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set6reps != null) {
-            binding.apply { repInput6.setText(exercise.set6reps) }
+        if (exercise.set6reps != -1) {
+            binding.apply { repInput6.setText(exercise.set6reps.toString(), TextView.BufferType.SPANNABLE) }
         }
-        if (exercise.set7reps != null) {
-            binding.apply { repInput7.setText(exercise.set7reps) }
+        if (exercise.set7reps != -1) {
+            binding.apply { repInput7.setText(exercise.set7reps.toString(), TextView.BufferType.SPANNABLE) }
         }
 
     }
