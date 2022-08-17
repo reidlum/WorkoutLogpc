@@ -95,8 +95,8 @@ class AddExerciseFragment : Fragment() {
         val id = navigationArgs.workoutId
         binding.saveBtn.setOnClickListener {
             addNewExercise()
-            val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workoutName = workoutName, id)
-            findNavController().navigate(action)
+            //val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workoutName = workoutName, workoutId = id)
+            //findNavController().navigate(action)
         }
     }
 
