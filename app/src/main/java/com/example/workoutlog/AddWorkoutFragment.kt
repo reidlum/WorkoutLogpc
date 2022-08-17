@@ -78,13 +78,13 @@ class AddWorkoutFragment : Fragment() {
             findNavController().navigate(R.id.action_addWorkoutFragment_to_FirstFragment2)
         }
     }
-    private fun updateItem() {
+    private fun updateItem(workoutId: Int) {
         if (isEntryValid()) {
             viewModel.updateItem(
                 this.navigationArgs.workoutId,
                 this.binding.nameInput.text.toString()
             )
-            val action = AddWorkoutFragmentDirections.actionAddWorkoutFragmentToFirstFragment2()
+            val action = AddWorkoutFragmentDirections.actionAddWorkoutFragmentToSecondFragment(this.binding.nameInput.text.toString(),workoutId)
             findNavController().navigate(action)
         }
     }
@@ -97,7 +97,7 @@ class AddWorkoutFragment : Fragment() {
                 workout = selectedItem
                 bind(workout)
                 binding.saveBtn.setOnClickListener {
-                    updateItem()
+                    updateItem(id)
                 }
             }
         } else {

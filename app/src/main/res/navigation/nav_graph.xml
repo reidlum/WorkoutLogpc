@@ -55,6 +55,10 @@
         <action
             android:id="@+id/action_addWorkoutFragment_to_FirstFragment2"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_addWorkoutFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment"
+            app:popUpTo="@id/FirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/addExerciseFragment"
