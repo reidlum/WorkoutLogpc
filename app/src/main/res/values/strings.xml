@@ -44,6 +44,8 @@
     <string name="edit_workout">Edit Workout</string>
     <string name="edit_fragment_title">Edit Workout</string>
     <string name="add_fragment_title">Add Workout</string>
+    <string name="add_exercise">Add Exercise</string>
+
 
 
 </resources>

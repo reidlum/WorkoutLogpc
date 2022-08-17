@@ -13,5 +13,10 @@
         android:orderInCategory="100"
         android:title="@string/edit_workout"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_addExercise"
+        android:orderInCategory="100"
+        android:title="@string/add_exercise"
+        app:showAsAction="ifRoom" />
 
 </menu>

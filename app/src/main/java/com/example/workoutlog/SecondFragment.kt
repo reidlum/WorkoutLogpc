@@ -88,10 +88,10 @@ class SecondFragment : Fragment() {
         binding.buttonSecond.setOnClickListener {
 
         }
-        binding.fab.setOnClickListener {
-            val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutName = workoutName, workoutId = id)
-            findNavController().navigate(action)
-        }
+        //binding.fab.setOnClickListener {
+            //val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutName = workoutName, workoutId = id)
+            //findNavController().navigate(action)
+        //}
         //viewModel.retrieveWorkout(id).observe(this.viewLifecycleOwner) { selectedItem ->
         //    workout = selectedItem
         //    bind(workout)
@@ -110,6 +110,11 @@ class SecondFragment : Fragment() {
             }
             R.id.action_editWorkout -> {
                 editWorkout()
+                true
+            }
+            R.id.action_addExercise -> {
+                val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutName = workoutName, workoutId = id)
+                findNavController().navigate(action)
                 true
             }
             else -> super.onOptionsItemSelected(item)
