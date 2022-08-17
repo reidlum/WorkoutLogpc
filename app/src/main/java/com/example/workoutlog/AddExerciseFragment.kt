@@ -1,12 +1,15 @@
 package com.example.workoutlog
 
+import android.content.ClipData
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.workoutlog.data.Exercise
 import com.example.workoutlog.data.Workout
 import com.example.workoutlog.databinding.FragmentAddExerciseBinding
 import com.example.workoutlog.databinding.FragmentAddWorkoutBinding
@@ -22,7 +25,13 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class AddExerciseFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+    private val viewModel: ExerciseViewModel by activityViewModels {
+        ExerciseViewModelFactory(
+            (activity?.application as WorkoutApplication).edatabase
+                .exerciseDao()
+        )
+    }
+    lateinit var exercise: Exercise
 
     private var param1: String? = null
     private var param2: String? = null
@@ -30,10 +39,40 @@ class AddExerciseFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var workoutName: String
     private val navigationArgs: AddExerciseFragmentArgs by navArgs()
+    private fun isEntryValid(): Boolean {
+        return viewModel.isEntryValid(
+            binding.nameInput.text.toString()
+        )
+    }
+    private fun addNewExercise() {
+        if (isEntryValid()) {
+            viewModel.addNewExercise(
+                binding.nameInput.text.toString(),
+                navigationArgs.workoutId,
+                binding.weightInput1.inputType,
+                binding.weightInput2.inputType,
+                binding.weightInput3.inputType,
+                binding.weightInput4.inputType,
+                binding.weightInput5.inputType,
+                binding.weightInput6.inputType,
+                binding.weightInput7.inputType,
+                binding.repInput1.inputType,
+                binding.repInput2.inputType,
+                binding.repInput3.inputType,
+                binding.repInput4.inputType,
+                binding.repInput5.inputType,
+                binding.repInput6.inputType,
+                binding.repInput7.inputType,
 
+            )
+            val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workoutId = id, workoutName = workoutName)
+            findNavController().navigate(action)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             workoutName = it.getString(SecondFragment.WORKOUT_NAME).toString()
             param1 = it.getString(ARG_PARAM1)
@@ -55,14 +94,12 @@ class AddExerciseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val id = navigationArgs.workoutId
         binding.saveBtn.setOnClickListener {
-            val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workoutName, id)
+            addNewExercise()
+            val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workoutName = workoutName, id)
             findNavController().navigate(action)
         }
     }
-    private fun saveExercise(){
-        val stringInTextField = binding.repInput1.text.toString()
-        val rep1 = stringInTextField.toIntOrNull()
-    }
+
 
     companion object {
         /**

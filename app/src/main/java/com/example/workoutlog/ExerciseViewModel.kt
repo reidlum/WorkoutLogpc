@@ -39,7 +39,7 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
         )
     }
 
-    private fun addNewExercise(exerciseName: String, workoutId: Int,
+    fun addNewExercise(exerciseName: String, workoutId: Int,
                                     set1weight: Int, set2weight: Int, set3weight: Int, set4weight: Int, set5weight: Int, set6weight: Int, set7weight: Int,
                                     set1reps: Int,  set2reps: Int,  set3reps: Int,  set4reps: Int,  set5reps: Int,  set6reps: Int,  set7reps: Int,) {
         val newExercise = getNewExerciseEntry(exerciseName, workoutId,
@@ -47,6 +47,14 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
             set1reps,  set2reps,  set3reps,  set4reps,  set5reps,  set6reps,  set7reps)
         insertExercise(newExercise)
     }
+
+    fun isEntryValid(ExerciseName: String): Boolean {
+        if (ExerciseName.isBlank()) {
+            return false
+        }
+        return true
+    }
+
 }
 
 
