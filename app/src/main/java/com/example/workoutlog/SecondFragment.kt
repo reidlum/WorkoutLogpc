@@ -96,6 +96,8 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val id = navigationArgs.workoutId
         val adapter = ExerciseListAdapter {
+            val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutId = id, workoutName = workoutName, title = it.exerciseName, exerciseId = it.id)
+            this.findNavController().navigate(action)
         }
         binding.recyclerView.adapter = adapter
         eviewModel.allExercises(id).observe(this.viewLifecycleOwner) { items ->
@@ -135,7 +137,7 @@ class SecondFragment : Fragment() {
                 true
             }
             R.id.action_addExercise -> {
-                val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutName = workoutName, workoutId = id)
+                val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutId = id, workoutName = workoutName, title = "Add Exercise")
                 findNavController().navigate(action)
                 true
             }

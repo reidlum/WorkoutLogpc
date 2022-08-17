@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -39,6 +40,7 @@ class AddExerciseFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var workoutName: String
     private val navigationArgs: AddExerciseFragmentArgs by navArgs()
+
     private fun isEntryValid(): Boolean {
         return viewModel.isEntryValid(
             binding.nameInput.text.toString()
@@ -71,6 +73,55 @@ class AddExerciseFragment : Fragment() {
         }
     }
 
+    private fun bind(exercise: Exercise) {
+        binding.apply {
+            nameInput.setText(exercise.exerciseName, TextView.BufferType.SPANNABLE)
+        }
+        if (exercise.set1weight != null) {
+            binding.apply { weightInput1.setText(exercise.set1weight) }
+        }
+        if (exercise.set2weight != null) {
+            binding.apply { weightInput2.setText(exercise.set2weight) }
+        }
+        if (exercise.set3weight != null) {
+            binding.apply { weightInput3.setText(exercise.set3weight) }
+        }
+        if (exercise.set4weight != null) {
+            binding.apply { weightInput4.setText(exercise.set4weight) }
+        }
+        if (exercise.set5weight != null) {
+            binding.apply { weightInput5.setText(exercise.set5weight) }
+        }
+        if (exercise.set6weight != null) {
+            binding.apply { weightInput6.setText(exercise.set6weight) }
+        }
+        if (exercise.set7weight != null) {
+            binding.apply { weightInput7.setText(exercise.set7weight) }
+        }
+        if (exercise.set1reps != null) {
+            binding.apply { repInput1.setText(exercise.set1reps) }
+        }
+        if (exercise.set2reps != null) {
+            binding.apply { repInput2.setText(exercise.set2reps) }
+        }
+        if (exercise.set3reps != null) {
+            binding.apply { repInput3.setText(exercise.set3reps) }
+        }
+        if (exercise.set4reps != null) {
+            binding.apply { repInput4.setText(exercise.set4reps) }
+        }
+        if (exercise.set5reps != null) {
+            binding.apply { repInput5.setText(exercise.set5reps) }
+        }
+        if (exercise.set6reps != null) {
+            binding.apply { repInput6.setText(exercise.set6reps) }
+        }
+        if (exercise.set7reps != null) {
+            binding.apply { repInput7.setText(exercise.set7reps) }
+        }
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -93,11 +144,19 @@ class AddExerciseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val id = navigationArgs.workoutId
+        val test = navigationArgs.title
+        val id = navigationArgs.exerciseId
+        if (test != "Add Exercise") {
+            viewModel.retrieveExercise(id).observe(this.viewLifecycleOwner) { selectedItem ->
+                exercise = selectedItem
+                bind(exercise)
+            }
+        } else {
         binding.saveBtn.setOnClickListener {
             addNewExercise()
             //val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workoutName = workoutName, workoutId = id)
             //findNavController().navigate(action)
+            }
         }
     }
 

@@ -157,6 +157,10 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
         return true
     }
 
+    fun retrieveExercise(id: Int): LiveData<Exercise> {
+        return exerciseDao.getExercise(id).asLiveData()
+    }
+
 }
 
 
