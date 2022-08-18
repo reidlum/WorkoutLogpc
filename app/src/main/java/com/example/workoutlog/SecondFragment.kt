@@ -151,10 +151,10 @@ class SecondFragment : Fragment() {
         }
     }
     private fun showConfirmationDialog() {
-        MaterialAlertDialogBuilder(requireContext())
+        MaterialAlertDialogBuilder(requireContext(),R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Background)
             .setTitle(getString(android.R.string.dialog_alert_title))
             .setMessage(getString(R.string.delete_question))
-            .setCancelable(false)
+            .setCancelable(true)
             .setNegativeButton(getString(R.string.no)) { _, _ -> }
             .setPositiveButton(getString(R.string.yes)) { _, _ ->
                 deleteWorkout()
