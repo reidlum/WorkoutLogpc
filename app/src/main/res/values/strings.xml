@@ -37,6 +37,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="delete_question">Are you sure you want to delete this workout?</string>
+    <string name="delete_exercise_question">Are you sure you want to delete this exercise?</string>
     <string name="attention">Attention</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
@@ -45,6 +46,8 @@
     <string name="edit_fragment_title">Edit Workout</string>
     <string name="add_fragment_title">Add Workout</string>
     <string name="add_exercise">Add Exercise</string>
+    <string name="delete_exercise">Delete Exercise</string>
+
 
 
 

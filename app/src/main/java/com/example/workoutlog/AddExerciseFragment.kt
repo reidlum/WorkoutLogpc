@@ -2,10 +2,8 @@ package com.example.workoutlog
 
 import android.content.ClipData
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -14,11 +12,11 @@ import com.example.workoutlog.data.Exercise
 import com.example.workoutlog.data.Workout
 import com.example.workoutlog.databinding.FragmentAddExerciseBinding
 import com.example.workoutlog.databinding.FragmentAddWorkoutBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-// TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+//private const val ARG_PARAM1 = "param1"
+//private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -151,14 +149,32 @@ class AddExerciseFragment : Fragment() {
 
     }
 
+    private fun deleteExercise() {
+        viewModel.deleteItem(exercise)
+        findNavController().navigateUp()
+    }
+
+    private fun showConfirmationDialog() {
+        MaterialAlertDialogBuilder(requireContext(),R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Background)
+            .setTitle(getString(android.R.string.dialog_alert_title))
+            .setMessage(getString(R.string.delete_exercise_question))
+            .setCancelable(true)
+            .setNegativeButton(getString(R.string.no)) { _, _ -> }
+            .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                deleteExercise()
+            }
+            .show()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
             workoutName = it.getString(SecondFragment.WORKOUT_NAME).toString()
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            //param1 = it.getString(ARG_PARAM1)
+            //param2 = it.getString(ARG_PARAM2)
         }
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -173,9 +189,8 @@ class AddExerciseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val test = navigationArgs.title
         val id = navigationArgs.exerciseId
-        if (test != "Add Exercise") {
+        if (id > 0) {
             viewModel.retrieveExercise(id).observe(this.viewLifecycleOwner) { selectedItem ->
                 exercise = selectedItem
                 bind(exercise)
@@ -189,7 +204,23 @@ class AddExerciseFragment : Fragment() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        if (navigationArgs.exerciseId > 0) {
+            inflater.inflate(R.menu.menu_exercise, menu)
+        }
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_deleteExercise -> {
+                showConfirmationDialog()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    /*
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -209,6 +240,7 @@ class AddExerciseFragment : Fragment() {
                 }
             }
     }
+     */
 
     override fun onDestroyView() {
         super.onDestroyView()
