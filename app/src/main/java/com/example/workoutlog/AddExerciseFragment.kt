@@ -73,6 +73,34 @@ class AddExerciseFragment : Fragment() {
         }
     }
 
+    private fun updateExercise() {
+        val id = navigationArgs.workoutId
+        if (isEntryValid()) {
+            viewModel.updateExercise(
+                navigationArgs.exerciseId,
+                binding.nameInput.text.toString(),
+                id,
+                binding.weightInput1.text.toString(),
+                binding.weightInput2.text.toString(),
+                binding.weightInput3.text.toString(),
+                binding.weightInput4.text.toString(),
+                binding.weightInput5.text.toString(),
+                binding.weightInput6.text.toString(),
+                binding.weightInput7.text.toString(),
+                binding.repInput1.text.toString(),
+                binding.repInput2.text.toString(),
+                binding.repInput3.text.toString(),
+                binding.repInput4.text.toString(),
+                binding.repInput5.text.toString(),
+                binding.repInput6.text.toString(),
+                binding.repInput7.text.toString(),
+
+                )
+            val action = AddExerciseFragmentDirections.actionAddExerciseFragmentToSecondFragment(workoutId = id, workoutName = workoutName)
+            findNavController().navigate(action)
+        }
+    }
+
     private fun bind(exercise: Exercise) {
         binding.apply {
             nameInput.setText(exercise.exerciseName, TextView.BufferType.SPANNABLE)
@@ -119,6 +147,7 @@ class AddExerciseFragment : Fragment() {
         if (exercise.set7reps != -1) {
             binding.apply { repInput7.setText(exercise.set7reps.toString(), TextView.BufferType.SPANNABLE) }
         }
+        binding.apply { saveBtn.setOnClickListener { updateExercise() } }
 
     }
 
