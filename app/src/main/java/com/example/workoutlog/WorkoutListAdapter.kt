@@ -20,13 +20,18 @@ class WorkoutListAdapter(private val onWorkoutClicked: (Workout) -> Unit) :
     ListAdapter<Workout, WorkoutListAdapter.WorkoutViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkoutViewHolder {
-        return WorkoutViewHolder(
+        val viewHolder = WorkoutViewHolder(
             WorkoutListItemBinding.inflate(
-                LayoutInflater.from(
-                    parent.context
-                )
+                LayoutInflater.from( parent.context),
+                parent,
+                false
             )
         )
+        viewHolder.itemView.setOnClickListener {
+            val position = viewHolder.adapterPosition
+            onWorkoutClicked(getItem(position))
+        }
+        return viewHolder
     }
 
 

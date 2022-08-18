@@ -13,13 +13,18 @@ import com.example.workoutlog.databinding.WorkoutListItemBinding
 class ExerciseListAdapter(private val onExerciseClicked: (Exercise) -> Unit) :
     ListAdapter<Exercise, ExerciseListAdapter.ExerciseViewHolder>(ExerciseListAdapter.DiffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseListAdapter.ExerciseViewHolder {
-        return ExerciseViewHolder(
+        val viewHolder = ExerciseViewHolder(
             ExerciseListItemBinding.inflate(
-                LayoutInflater.from(
-                    parent.context
-                )
+                LayoutInflater.from(parent.context),
+                parent,
+                false
             )
         )
+        viewHolder.itemView.setOnClickListener {
+            val position = viewHolder.adapterPosition
+            onExerciseClicked(getItem(position))
+        }
+        return viewHolder
     }
 
 
