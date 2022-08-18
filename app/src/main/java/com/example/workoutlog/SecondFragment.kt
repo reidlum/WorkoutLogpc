@@ -108,9 +108,9 @@ class SecondFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
 
 
-        binding.buttonSecond.setOnClickListener {
+        //binding.buttonSecond.setOnClickListener {
 
-        }
+        //}
         //binding.fab.setOnClickListener {
             //val action = SecondFragmentDirections.actionSecondFragmentToAddExerciseFragment(workoutName = workoutName, workoutId = id)
             //findNavController().navigate(action)
