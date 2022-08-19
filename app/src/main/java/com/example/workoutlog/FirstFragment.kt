@@ -62,6 +62,9 @@ class FirstFragment : Fragment() {
             )
             this.findNavController().navigate(action)
         }
+        binding.fab2.setOnClickListener {
+            this.findNavController().navigate(R.id.action_FirstFragment_to_exerciseProgressList)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

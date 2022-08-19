@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_addWorkoutFragment"
             app:destination="@id/addWorkoutFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_exerciseProgressList"
+            app:destination="@id/exerciseProgressList" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -84,4 +87,9 @@
             android:defaultValue="-1"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/exerciseProgressList"
+        android:name="com.example.workoutlog.ExerciseProgressList"
+        android:label="@string/exercises"
+        tools:layout="@layout/fragment_exercise_progress_list" />
 </navigation>
