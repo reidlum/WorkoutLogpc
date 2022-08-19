@@ -26,4 +26,7 @@ interface ExerciseDao {
 
     @Query("SELECT * from exercise group by exerciseName")
     fun getExercisesForProgress(): Flow<List<Exercise>>
+
+    @Query("SELECT * from exercise WHERE exerciseName = :exerciseName ORDER BY id DESC")
+    fun getExercisesByName(exerciseName: String): Flow<List<Exercise>>
 }

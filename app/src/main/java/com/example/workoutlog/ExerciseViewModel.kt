@@ -311,6 +311,12 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
         }
     }
 
+    fun getExercisesByName(exerciseName: String){
+        viewModelScope.launch {
+            exerciseDao.getExercisesByName(exerciseName)
+        }
+    }
+
 }
 
 

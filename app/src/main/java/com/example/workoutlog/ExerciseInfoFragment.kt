@@ -20,6 +20,7 @@ private const val ARG_PARAM2 = "param2"
 class ExerciseInfoFragment : Fragment() {
     private val navigationArgs: ExerciseInfoFragmentArgs by navArgs()
 
+    private val exerciseName = navigationArgs.title
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
