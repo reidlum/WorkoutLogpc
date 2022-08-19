@@ -47,8 +47,8 @@ class ExerciseProgressList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = ExerciseListAdapter {
-            //val action =
-            //this.findNavController().navigate(action)
+            val action = ExerciseProgressListDirections.actionExerciseProgressListToExerciseInfoFragment("${it.exerciseName} Statistics")
+            this.findNavController().navigate(action)
         }
         binding.recyclerView.adapter = adapter
         eviewModel.allExercises().observe(this.viewLifecycleOwner) { items ->

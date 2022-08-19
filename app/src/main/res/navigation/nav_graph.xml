@@ -99,6 +99,10 @@
     <fragment
         android:id="@+id/exerciseInfoFragment"
         android:name="com.example.workoutlog.ExerciseInfoFragment"
-        android:label="fragment_exercise_info"
-        tools:layout="@layout/fragment_exercise_info" />
+        android:label="{title}"
+        tools:layout="@layout/fragment_exercise_info" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
 </navigation>
