@@ -23,7 +23,9 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Theme.WorkoutLog.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.WorkoutLog.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="android:textColorPrimary">@color/light_grey</item>
+    </style>
 
     <style name="Theme.WorkoutLog.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
