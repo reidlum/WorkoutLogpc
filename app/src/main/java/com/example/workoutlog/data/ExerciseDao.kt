@@ -20,4 +20,7 @@ interface ExerciseDao {
 
     @Query("SELECT * from exercise WHERE workoutId = :id ORDER BY id DESC")
     fun getExercisesForWorkout(id: Int): Flow<List<Exercise>>
+
+    @Query("SELECT * from exercise group by exerciseName")
+    fun getExercisesForProgress(): Flow<List<Exercise>>
 }

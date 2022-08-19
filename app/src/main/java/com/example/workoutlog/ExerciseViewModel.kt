@@ -9,8 +9,11 @@ import kotlinx.coroutines.launch
 
 class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
 
-    fun allExercises(workoutId: Int): LiveData<List<Exercise>> {
+    fun allExercisesById(workoutId: Int): LiveData<List<Exercise>> {
         return exerciseDao.getExercisesForWorkout(workoutId).asLiveData()
+    }
+    fun allExercises(): LiveData<List<Exercise>> {
+        return exerciseDao.getExercisesForProgress().asLiveData()
     }
 
 

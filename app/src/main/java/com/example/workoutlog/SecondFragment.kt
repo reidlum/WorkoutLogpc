@@ -100,7 +100,7 @@ class SecondFragment : Fragment() {
             this.findNavController().navigate(action)
         }
         binding.recyclerView.adapter = adapter
-        eviewModel.allExercises(id).observe(this.viewLifecycleOwner) { items ->
+        eviewModel.allExercisesById(id).observe(this.viewLifecycleOwner) { items ->
             items.let {
                 adapter.submitList(it)
             }
