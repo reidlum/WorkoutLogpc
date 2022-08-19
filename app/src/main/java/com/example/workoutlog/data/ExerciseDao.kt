@@ -15,6 +15,9 @@ interface ExerciseDao {
     @Delete
     suspend fun delete(exercise: Exercise)
 
+    @Query("DELETE from exercise WHERE workoutId = :id")
+    suspend fun deleteExercisesById(id: Int)
+
     @Query("SELECT * from exercise WHERE id = :id")
     fun getExercise(id: Int): Flow<Exercise>
 

@@ -305,6 +305,12 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
         }
     }
 
+    fun deleteExercisesById(id: Int){
+        viewModelScope.launch {
+            exerciseDao.deleteExercisesById(id)
+        }
+    }
+
 }
 
 

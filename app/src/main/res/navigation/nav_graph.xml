@@ -91,5 +91,14 @@
         android:id="@+id/exerciseProgressList"
         android:name="com.example.workoutlog.ExerciseProgressList"
         android:label="@string/exercises"
-        tools:layout="@layout/fragment_exercise_progress_list" />
+        tools:layout="@layout/fragment_exercise_progress_list" >
+        <action
+            android:id="@+id/action_exerciseProgressList_to_exerciseInfoFragment"
+            app:destination="@id/exerciseInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseInfoFragment"
+        android:name="com.example.workoutlog.ExerciseInfoFragment"
+        android:label="fragment_exercise_info"
+        tools:layout="@layout/fragment_exercise_info" />
 </navigation>

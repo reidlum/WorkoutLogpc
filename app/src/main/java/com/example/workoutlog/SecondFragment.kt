@@ -58,6 +58,7 @@ class SecondFragment : Fragment() {
 
     private fun deleteWorkout() {
         viewModel.deleteWorkout(workout)
+        eviewModel.deleteExercisesById(navigationArgs.workoutId)
         findNavController().navigateUp()
     }
 
