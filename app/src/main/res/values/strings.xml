@@ -49,6 +49,8 @@
     <string name="add_fragment_title">Add Workout</string>
     <string name="add_exercise">Add Exercise</string>
     <string name="delete_exercise">Delete Exercise</string>
+    <string name="max_weight">Max Weight:</string>
+
 
 
 </resources>

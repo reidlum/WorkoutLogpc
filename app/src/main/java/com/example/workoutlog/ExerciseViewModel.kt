@@ -317,6 +317,12 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
         }
     }
 
+    fun getExerciseMaxWeight(exerciseName: String){
+        viewModelScope.launch {
+            exerciseDao.getExerciseMaxWeight(exerciseName)
+        }
+    }
+
 }
 
 
