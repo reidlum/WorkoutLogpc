@@ -99,7 +99,7 @@
     <fragment
         android:id="@+id/exerciseInfoFragment"
         android:name="com.example.workoutlog.ExerciseInfoFragment"
-        android:label="{title}"
+        android:label="{title} Statistics"
         tools:layout="@layout/fragment_exercise_info" >
         <argument
             android:name="title"
