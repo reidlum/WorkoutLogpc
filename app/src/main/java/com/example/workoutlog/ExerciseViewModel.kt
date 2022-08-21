@@ -5,7 +5,11 @@ import androidx.lifecycle.*
 import com.example.workoutlog.data.Exercise
 import com.example.workoutlog.data.ExerciseDao
 import com.example.workoutlog.data.Workout
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
 
@@ -317,11 +321,10 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
         }
     }
 
-    fun getExerciseMaxWeight(exerciseName: String){
-        viewModelScope.launch {
+    fun getExerciseMaxWeightt(exerciseName: String): Int = runBlocking {
+
             exerciseDao.getExerciseMaxWeight(exerciseName)
         }
-    }
 
 }
 

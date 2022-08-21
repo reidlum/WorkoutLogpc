@@ -2,6 +2,7 @@ package com.example.workoutlog.data
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.runBlocking
 
 
 @Dao
@@ -30,6 +31,6 @@ interface ExerciseDao {
     @Query("SELECT * from exercise WHERE exerciseName = :exerciseName ORDER BY id DESC")
     fun getExercisesByName(exerciseName: String): Flow<List<Exercise>>
 
-    @Query("SELECT GREATEST(MAX(set1weight), MAX(set2weight), MAX(set3weight), MAX(set4weight), MAX(set5weight), MAX(set6weight), MAX(set7weight)) from exercise WHERE exerciseName = :exerciseName")
-    fun getExerciseMaxWeight(exerciseName: String): Int
+    @Query("SELECT MAX(MAX(set1weight), MAX(set2weight), MAX(set3weight), MAX(set4weight), MAX(set5weight), MAX(set6weight), MAX(set7weight)) from exercise WHERE exerciseName = :exerciseName")
+    suspend fun getExerciseMaxWeight(exerciseName: String): Int
 }
