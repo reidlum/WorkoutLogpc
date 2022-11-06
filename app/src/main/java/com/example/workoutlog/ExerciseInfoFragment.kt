@@ -101,7 +101,7 @@ class ExerciseInfoFragment : Fragment() {
             numworkouts += 1
             numworkoutslist += numworkouts
         }
-        val series1: XYSeries = SimpleXYSeries(Arrays.asList(* numworkoutslist),Arrays.asList(* volumeList),"Series 1")
+        val series1: XYSeries = SimpleXYSeries(Arrays.asList(* numworkoutslist),Arrays.asList(* volumeList),"")
         val series1Format = LineAndPointFormatter(Color.LTGRAY,Color.LTGRAY,null,null)
         val plot:XYPlot = view.findViewById(R.id.weight_plot)
         plot.addSeries(series1,series1Format)

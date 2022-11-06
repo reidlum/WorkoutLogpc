@@ -1,18 +1,18 @@
 package com.example.workoutlog
 
-import android.content.ClipData
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.workoutlog.data.Exercise
-import com.example.workoutlog.data.Workout
 import com.example.workoutlog.databinding.FragmentAddExerciseBinding
-import com.example.workoutlog.databinding.FragmentAddWorkoutBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //private const val ARG_PARAM1 = "param1"
@@ -175,6 +175,7 @@ class AddExerciseFragment : Fragment() {
             //param2 = it.getString(ARG_PARAM2)
         }
         setHasOptionsMenu(true)
+
     }
 
     override fun onCreateView(
@@ -202,6 +203,19 @@ class AddExerciseFragment : Fragment() {
             //findNavController().navigate(action)
             }
         }
+        /*
+        val auto = view?.findViewById<AutoCompleteTextView>(R.id.name_input)
+        val autoList = arrayOf(viewModel.getExerciseNames())
+        val adapter = ArrayAdapter(view.context,android.R.layout.simple_list_item_1,autoList)
+        if (auto != null) {
+            auto.setAdapter(adapter)
+        }
+         */
+        val autoList = viewModel.getExerciseNames()
+        val adapter = ArrayAdapter(view.context,android.R.layout.simple_list_item_1,autoList)
+        val actv = view.findViewById(R.id.name_input) as AutoCompleteTextView
+        actv.setThreshold(1)
+        actv.setAdapter(adapter)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -318,6 +318,10 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
     fun getExercisesByNamee(exerciseName: String): List<Exercise> = runBlocking {
             exerciseDao.getExercisesByName(exerciseName)
     }
+    fun getExerciseNames(): List<String> = runBlocking {
+        exerciseDao.getExerciseNames()
+    }
+
 
     fun getExerciseMaxWeightt(exerciseName: String): Int = runBlocking {
 
