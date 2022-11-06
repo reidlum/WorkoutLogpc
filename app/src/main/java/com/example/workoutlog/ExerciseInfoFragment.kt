@@ -44,10 +44,31 @@ class ExerciseInfoFragment : Fragment() {
 
         val exerciseName = navigationArgs.title
         val exerciseList = eviewModel.getExercisesByNamee(exerciseName)
+        val volumeList = mutableListOf<Number>()
         for (item in exerciseList){
-            if (item.set1weight >0){
-                //todo volume
+            var volume = 0
+            if (item.set1weight > 0 && item.set1reps>0){
+                volume += item.set1weight*item.set1reps
             }
+            if (item.set2weight > 0 && item.set2reps>0){
+                volume += item.set2weight*item.set2reps
+            }
+            if (item.set3weight > 0 && item.set3reps>0){
+                volume += item.set3weight*item.set3reps
+            }
+            if (item.set4weight > 0 && item.set4reps>0){
+                volume += item.set4weight * item.set4reps
+            }
+            if (item.set5weight > 0 && item.set5reps>0){
+                volume += item.set5weight*item.set5reps
+            }
+            if (item.set6weight > 0 && item.set6reps>0){
+                volume += item.set6weight*item.set6reps
+            }
+            if (item.set7weight > 0 && item.set7reps>0){
+                volume += item.set7weight*item.set7reps
+            }
+            volumeList.add(volume)
         }
 
 
@@ -68,8 +89,10 @@ class ExerciseInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val max = "${eviewModel.getExerciseMaxWeightt(navigationArgs.title).toString()} lbs"
-        binding.maxWeight.text = max
+        if (eviewModel.getExerciseMaxWeightt(navigationArgs.title) > 0) {
+            val max = "${eviewModel.getExerciseMaxWeightt(navigationArgs.title).toString()} lbs"
+            binding.maxWeight.text = max
+        }
     }
 
     companion object {
