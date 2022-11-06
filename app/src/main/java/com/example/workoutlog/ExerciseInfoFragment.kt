@@ -1,5 +1,6 @@
 package com.example.workoutlog
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,11 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.androidplot.xy.LineAndPointFormatter
+import com.androidplot.xy.SimpleXYSeries
+import com.androidplot.xy.XYPlot
+import com.androidplot.xy.XYSeries
 import com.example.workoutlog.databinding.FragmentExerciseInfoBinding
 import com.example.workoutlog.databinding.FragmentSecondBinding
 import org.w3c.dom.Text
 import java.nio.file.Files.find
+import java.util.Arrays
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,13 +45,35 @@ class ExerciseInfoFragment : Fragment() {
         )
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val exerciseName = navigationArgs.title
-        val exerciseList = eviewModel.getExercisesByNamee(exerciseName)
-        val volumeList = mutableListOf<Number>()
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        _binding = FragmentExerciseInfoBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (eviewModel.getExerciseMaxWeightt(navigationArgs.title) > 0) {
+            val max = "${eviewModel.getExerciseMaxWeightt(navigationArgs.title).toString()} lbs"
+            binding.maxWeight.text = max
+        }
+        val exerciseList = eviewModel.getExercisesByNamee(navigationArgs.title)
+        var volumeList = arrayOf<Number>()
+        var numworkouts = 0
+        var numworkoutslist = arrayOf<Number>()
         for (item in exerciseList){
             var volume = 0
             if (item.set1weight > 0 && item.set1reps>0){
@@ -68,31 +97,14 @@ class ExerciseInfoFragment : Fragment() {
             if (item.set7weight > 0 && item.set7reps>0){
                 volume += item.set7weight*item.set7reps
             }
-            volumeList.add(volume)
+            volumeList += volume
+            numworkouts += 1
+            numworkoutslist += numworkouts
         }
-
-
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentExerciseInfoBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        if (eviewModel.getExerciseMaxWeightt(navigationArgs.title) > 0) {
-            val max = "${eviewModel.getExerciseMaxWeightt(navigationArgs.title).toString()} lbs"
-            binding.maxWeight.text = max
-        }
+        val series1: XYSeries = SimpleXYSeries(Arrays.asList(* numworkoutslist),Arrays.asList(* volumeList),"Series 1")
+        val series1Format = LineAndPointFormatter(Color.LTGRAY,Color.LTGRAY,null,null)
+        val plot:XYPlot = view.findViewById(R.id.weight_plot)
+        plot.addSeries(series1,series1Format)
     }
 
     companion object {
