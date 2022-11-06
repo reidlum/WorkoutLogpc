@@ -24,4 +24,14 @@
         app:layout_constraintStart_toEndOf="@id/max_weight_label"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/weight_plot"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        style="@style/APDefacto.Dark"
+        app:title="@string/volume_graph"
+        app:rangeTitle="@string/y_label"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

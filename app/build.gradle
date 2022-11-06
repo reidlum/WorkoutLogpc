@@ -60,5 +60,5 @@ dependencies {
     kapt "androidx.room:room-compiler:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
 
-    implementation 'com.androidplot:androidplot-core1.5.7'
+    implementation 'com.androidplot:androidplot-core:1.5.7'
 }

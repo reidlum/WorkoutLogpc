@@ -315,10 +315,8 @@ class ExerciseViewModel(private val exerciseDao: ExerciseDao) : ViewModel() {
         }
     }
 
-    fun getExercisesByName(exerciseName: String){
-        viewModelScope.launch {
-            exerciseDao.getExercisesByName(exerciseName)
-        }
+    fun getExercisesByNamee(exerciseName: String): List<Exercise>{
+            return exerciseDao.getExercisesByName(exerciseName)
     }
 
     fun getExerciseMaxWeightt(exerciseName: String): Int = runBlocking {

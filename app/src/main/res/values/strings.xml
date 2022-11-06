@@ -50,7 +50,8 @@
     <string name="add_exercise">Add Exercise</string>
     <string name="delete_exercise">Delete Exercise</string>
     <string name="max_weight">Max Weight:</string>
-
+    <string name="volume_graph">Volume Graph</string>
+    <string name="y_label">"Volume (lb*sets*reps)"</string>
 
 
 </resources>

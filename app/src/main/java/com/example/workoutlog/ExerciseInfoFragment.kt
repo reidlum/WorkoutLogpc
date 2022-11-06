@@ -43,6 +43,13 @@ class ExerciseInfoFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         val exerciseName = navigationArgs.title
+        val exerciseList = eviewModel.getExercisesByNamee(exerciseName)
+        for (item in exerciseList){
+            if (item.set1weight >0){
+                //todo volume
+            }
+        }
+
 
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
